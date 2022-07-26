@@ -21,3 +21,15 @@ JOIN users ON users.id = e."userId"
 JOIN companies ON companies.id = e."companyId"
 JOIN roles ON roles.id = e."roleId"
 WHERE e."endDate" IS NULL AND users.id = 50;
+
+--Bônus 
+SELECT schools.id, schools.name AS school, courses.name AS course,
+companies.name AS company, roles.name AS role 
+FROM educations e
+JOIN schools ON e."schoolId" = schools.id
+JOIN courses ON e."courseId" = courses.id
+JOIN applicants a ON a."userId" = e."userId"
+JOIN jobs ON a."jobId" = jobs.id
+JOIN companies ON companies.id = jobs."companyId" 
+JOIN roles ON jobs."roleId" = roles.id
+WHERE companies.id = 10 AND roles.name = 'Software Engineer' AND jobs.active IS TRUE;
