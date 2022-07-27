@@ -1,5 +1,5 @@
 --Exercício 1 
-SELECT users.id, users.name AS name, cities.name AS "city" FROM users JOIN cities ON users."cityId" = cities.id;
+SELECT users.id, users.name AS name, cities.name AS "city" FROM users JOIN cities ON users."cityId" = cities.id WHERE cities.name = 'Rio de Janeiro';
 
 -- Exercicio 2
 SELECT t.id, users.name AS writer, u.name AS recipient , t.message
